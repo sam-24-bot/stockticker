@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+div.gray{
+background-color:#e5e5e5;
+margin-top:50px;
+margin-left:300px;
+margin-right:300px;
+margin-bottom:30px;
+}
+
+body{
+background-color:#5f345f;
+}
+
+hr{
+margin-left:300px;
+margin-right:300px;
+color:#e5e5e5;
+}
+</style>
+
+<script>
+function SendTicker(what){
+    var ticker = what.URL.value;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET", ticker, false);
+    xmlhttp.send();
+}
+
+function Clear_Form(){
+    //clears the input of form when clear button clicked
+    var form = document.getElementById("myform");
+    form.reset();
+}
+</script>
+</head>
+
+<body>
+<div class="gray">
+<h3 style="text-align:center"> Stock Search</h3>
+<form name="myform" method="GET" id="myform" style="text-align:center">
+<p style="text-align:center">Enter Stock Ticker Symbol<span style="color:red">*</span> <input type="text" name="URL" maxlength="255" size="30" required></p>
+<p style="margin-left:-70px;margin-top:30px;"><input type="submit" name="search" value="Search" onClick="SendTicker(this.form)"/></p>
+<p style="margin-top:-38px; text-align:center; margin-left:100px"><input type="button" name="clear" value="Clear" onClick="Clear_Form()"/></p>
+</div>
+<hr></hr>
+</body>
+
+</html>
